@@ -1,0 +1,35 @@
+.site-gallery {
+  padding: 0 20px;
+  margin: 20px 0 40px;
+
+  &__image {
+    position: relative;
+    &:hover {
+      .site-gallery__zoom {
+        display: flex;
+      }
+    }
+  }
+
+  &__zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba($color-black-2, 0.8);
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-flow: row wrap;
+    color: $color-white;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  &__image img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,67 @@
+.site-cards {
+  @include mq($from: tablet) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+}
+
+.site-card {
+  width: 200px;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  text-align: center;
+  grid-column: 1 / span 6;
+
+  @include mq($from: tablet) {
+    margin: 0 20px 40px 20px;
+  }
+
+  &__cap {
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all 200ms ease-in-out;
+    height: 200px;
+
+    &:hover {
+      border-radius: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    margin-top: 20px;
+    color: $color-secondary;
+    font-weight: 600;
+  }
+
+  &__short {
+    margin-top: 10px;
+    font-size: 12px;
+    color: $color-secondary;
+  }
+
+  &__cta {
+    margin-top: 20px;
+  }
+
+  &__button {
+    border: 0;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 10px 20px;
+    transition: all 200ms ease-in-out;
+
+    &:active,
+    &:hover {
+      background-color: rgba($color-primary, 0.4);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.site-social {
+  display: inline-block;
+  font-size: 30px;
+  margin: 10px;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+  }
+
+  a:active,
+  a:hover {
+    color: rgba($color-primary, 0.4);
+  }
+}
