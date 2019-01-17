@@ -50,7 +50,7 @@ export const SINGLE_PROJECT_QUERY = gql`
 
 export default class App extends Component {
   state = {
-    siteSub: "Lorem. Lorem. Lorem. Lorem",
+    siteSub: "Web Developer. Programmer. Learner. Memes",
     dialogOpen: false,
     activeProject: "cjqxkwvupaw2n08737vxfq0lg",
     singleProject: null
