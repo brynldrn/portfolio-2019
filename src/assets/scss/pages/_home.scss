@@ -1,0 +1,12 @@
+$component: ".home";
+
+#{$component} {
+  &__projects {
+    padding: 0 rem(10);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 600ms ease-in-out 0ms;
+  }
+}

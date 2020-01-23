@@ -1,0 +1,39 @@
+/*------------------------------------------------------------------*\
+  STRIP UNITS
+    strip out the unit from the number
+    usage:
+      $dimension: strip-units(12px);
+\*------------------------------------------------------------------*/
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+/*------------------------------------------------------------------*\
+  PIXEL TO REM
+    converts px to rem
+    usage:
+      width: rem(760);
+\*------------------------------------------------------------------*/
+@function rem($pxval) {
+  $pxval: strip-units($pxval);
+
+  $base: $em-base;
+  $base: strip-units($base);
+
+  @return ($pxval / $base) * 1rem;
+}
+
+/*------------------------------------------------------------------*\
+  COLORS
+    for color selection
+    usage:
+      background-color: color(white);
+\*------------------------------------------------------------------*/
+@function color($name, $tone: "base") {
+  @if map-has-key($colors, $name) {
+    @return map-get(map-get($colors, $name), $tone);
+  } @else {
+    @warn "Unknown '#{$name}' in $colors.";
+    @return null;
+  }
+}

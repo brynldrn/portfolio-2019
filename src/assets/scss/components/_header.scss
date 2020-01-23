@@ -1,0 +1,60 @@
+$component: ".header";
+
+#{$component} {
+  width: 100%;
+  height: auto;
+  max-height: rem(200);
+  padding: rem(10);
+  margin-top: rem(20);
+  margin-bottom: rem(60);
+  display: grid;
+  grid-template-areas: "logo logo . . nav nav";
+
+  & > img {
+    grid-area: logo;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
+  }
+
+  &__nav {
+    grid-area: nav;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
+
+    ul {
+      margin: 0;
+      list-style-type: none;
+    }
+
+    li {
+      text-align: right;
+    }
+
+    a {
+      display: block;
+      padding: rem(5) 0;
+      color: color(black, dark);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 100;
+      font-size: rem(13);
+      transition: color 300ms ease-in-out 0ms;
+    }
+  }
+
+  &--visible {
+    & > img,
+    #{$component}__nav {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+body.dark-mode {
+  #{$component} a {
+    color: color(blue, base);
+  }
+}

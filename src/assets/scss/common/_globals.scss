@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $noto;
+  transition: background-color 300ms ease-in-out 0ms;
+}
+
+body.dark-mode {
+  background-color: color(black, dark);
+}
+
+.app {
+  @include responsive(("width", 100%));
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    font-family: $noto;
+    font-weight: 500;
+  }
+
+  p,
+  span {
+    font-family: $gelasio;
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: 1.35;
+  }
+}

@@ -1,0 +1,25 @@
+// font sizes
+$em-base: 16px;
+
+// Media Query Breakpoints
+$small: 20em; // 320px, mobile
+$medium: 47.5em; // 760px, tablet
+$large: 67.5em; // 1080px, desktop
+$x-large: 80em; // 1280px, desktop
+$xx-large: 1440px; // 1440px, desktop
+
+$max-width: 1584px;
+
+$breakpoints: (
+  small: $small,
+  medium: $medium,
+  large: $large,
+  x-large: $x-large,
+  xx-large: $xx-large
+);
+
+$breakpointsMap: ($small, $medium, $large, $x-large, $xx-large);
+
+// Fonts
+$gelasio: "Gelasio", serif;
+$noto: "Noto Sans KR", sans-serif;

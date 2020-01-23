@@ -1,0 +1,88 @@
+/*------------------------------------------------------------------*\
+  ASPECT RATIO
+    properly set image dimensions
+    usage:
+      @include aspect-ratio(1280, 760);
+\*------------------------------------------------------------------*/
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > picture,
+  > img,
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    z-index: -1;
+  }
+}
+
+/*------------------------------------------------------------------*\
+  OBJECT FIT
+    apply object-fit + polyfill
+    usage:
+      @include object-fit();
+\*------------------------------------------------------------------*/
+@mixin object-fit($fit: fill, $position: null) {
+  -o-object-fit: $fit;
+  object-fit: $fit;
+  @if $position {
+    -o-object-position: $position;
+    object-position: $position;
+    font-family: "object-fit: #{$fit}; object-position: #{$position}";
+  } @else {
+    font-family: "object-fit: #{$fit}";
+  }
+}
+
+/*------------------------------------------------------------------*\
+  RESPONSIVE
+    responsive handler wrapper
+    usage:
+      @include responsive(('width', rem(10), rem(20), rem(30)));
+\*------------------------------------------------------------------*/
+@mixin responsive($args...) {
+  @for $i from 1 through length($breakpointsMap) {
+    // loop through all the breakpoints
+    @if $i == 1 {
+      // if the loop is in the smallest breakpoint
+      @for $j from 1 through length($args) {
+        // loop through all the properties
+        @if (#{nth(nth($args, $j), 2)} != null) {
+          #{nth(nth($args, $j), 1)}: #{nth(
+              nth($args, $j),
+              2
+            )}; // apply value to the property
+        }
+      }
+    } @else {
+      // if the loop is not in the smallest breakpoint
+      @media (min-width: #{nth($breakpointsMap, $i)}) {
+        // set mediq query
+        @for $j from 1 through length($args) {
+          // loop through all the properties
+          @if $i < length(nth($args, $j)) {
+            // check if the number of values is less than the number of breakpoints
+            @if (#{nth(nth($args, $j), $i + 1)} != null) {
+              #{nth(nth($args, $j), 1)}: #{nth(
+                  nth($args, $j),
+                  $i + 1
+                )}; // apply value to the property
+            }
+          }
+        }
+      }
+    }
+  }
+}
