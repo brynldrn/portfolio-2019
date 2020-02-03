@@ -1,0 +1,60 @@
+$component: ".footer";
+
+#{$component} {
+  width: 100%;
+  padding: 0 rem(10);
+  margin-top: rem(50);
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 800ms;
+
+  &-social {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &__item > a {
+      color: color(black, dark);
+      text-decoration: none;
+      display: block;
+      font-size: rem(12);
+      padding: rem(10);
+      margin-right: rem(5);
+      transition: all 300ms ease-in-out 0ms;
+      font-weight: 300;
+
+      &:hover {
+        color: color(blue);
+      }
+    }
+  }
+
+  &-copyright {
+    text-align: center;
+    font-size: rem(10);
+    margin: rem(10);
+    font-weight: 300;
+    transition: all 300ms ease-in-out 0ms;
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body.dark-mode {
+  #{$component}-social__item > a {
+    color: color(blue, base);
+
+    &:hover {
+      color: color(white);
+    }
+  }
+
+  #{$component}-copyright {
+    color: color(white);
+  }
+}

@@ -5,7 +5,7 @@ $component: ".dark-mode-toggle";
   position: fixed;
   z-index: 99;
   background-color: color(blue, dark);
-  padding: rem(10);
+  padding: rem(10) rem(12);
   border: 0;
   outline: 0;
   border-radius: 50%;
@@ -18,5 +18,9 @@ $component: ".dark-mode-toggle";
   &:hover {
     transform: translateX(0);
     background-color: rgba(color(blue, dark), 0.6);
+  }
+
+  span {
+    color: color(white);
   }
 }

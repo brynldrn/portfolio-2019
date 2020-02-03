@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const DarkModeToggle = ({ darkMode, setDarkMode }) => {
   const handleToggleClick = () => {
@@ -8,7 +10,7 @@ const DarkModeToggle = ({ darkMode, setDarkMode }) => {
   return (
     <button className="dark-mode-toggle" onClick={handleToggleClick}>
       <span role="img" aria-label="Dark Mode Toggle">
-        {darkMode ? "☀️" : "🌙"}
+        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
       </span>
     </button>
   );

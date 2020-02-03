@@ -19,6 +19,7 @@ const Home = () => {
   if (error) return "error";
 
   return (
+    // <canvas id="main-canvas"></canvas>
     <article className="home">
       {/* <Hero /> */}
       {/* Projects */}

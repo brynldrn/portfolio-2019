@@ -5,8 +5,11 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import "./assets/scss/main.scss";
 // Pages
 import Home from "./pages/Home";
+
+// Components
 import Header from "./components/Header";
 import DarkModeToggle from "./components/DarkModeToggle";
+import Footer from "./components/Footer";
 
 // Hooks
 import useDarkMode from "./hooks/useDarkMode";
@@ -31,6 +34,7 @@ const App = () => {
             </Route>
           </Switch>
         </main>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

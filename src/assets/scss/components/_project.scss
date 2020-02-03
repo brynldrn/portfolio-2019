@@ -7,8 +7,7 @@ $component: ".project";
   margin-bottom: rem(10);
   overflow: hidden;
   z-index: 0;
-
-  @include responsive(("width", 48%, 33.33%));
+  width: 100%;
 
   & > img {
     @include object-fit(cover);
