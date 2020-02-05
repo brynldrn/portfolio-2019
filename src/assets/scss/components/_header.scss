@@ -6,47 +6,72 @@ $component: ".header";
   max-height: rem(200);
   padding: rem(10);
   margin-top: rem(20);
-  margin-bottom: rem(60);
-  display: grid;
-  grid-template-areas: "logo logo . . nav nav";
+  margin-bottom: rem(20);
+  grid-template-areas:
+    "logo logo . stats stats stats"
+    "bio bio bio bio bio bio";
+
+  @include responsive(("display", "grid", "none"));
 
   & > img {
     grid-area: logo;
+    border-radius: 50%;
     opacity: 0;
     transform: translateY(50%);
     transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
   }
 
-  &__nav {
-    grid-area: nav;
+  &__stats {
+    grid-area: stats;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
     opacity: 0;
     transform: translateY(50%);
-    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
+    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 300ms;
+  }
 
-    ul {
-      margin: 0;
-      list-style-type: none;
-    }
+  &__stats-item {
+    display: block;
+    margin-right: rem(20);
 
-    li {
-      text-align: right;
-    }
-
-    a {
+    .num {
+      font-weight: bold;
       display: block;
-      padding: rem(5) 0;
-      color: color(black, dark);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 100;
-      font-size: rem(13);
-      transition: color 300ms ease-in-out 0ms;
+      text-align: center;
     }
+
+    .desc {
+      font-weight: 300;
+      font-size: rem(9);
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__bio {
+    grid-area: bio;
+    margin-top: rem(10);
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 600ms;
+
+    p {
+      font-size: rem(10);
+    }
+  }
+
+  &__username {
+    display: block;
+    font-weight: bold;
+    font-size: rem(13);
   }
 
   &--visible {
     & > img,
-    #{$component}__nav {
+    #{$component}__stats,
+    #{$component}__bio {
       opacity: 1;
       transform: translateX(0);
     }
@@ -54,7 +79,9 @@ $component: ".header";
 }
 
 body.dark-mode {
-  #{$component} a {
+  #{$component} a,
+  #{$component} span,
+  #{$component} p {
     color: color(blue, base);
   }
 }

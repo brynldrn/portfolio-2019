@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
 
 import useOnScreen from "../hooks/useOnScreen";
 
@@ -9,18 +8,30 @@ const Header = () => {
 
   return (
     <header className={`header ${onScreen ? "header--visible" : ""}`} ref={ref}>
-      <img src="https://placehold.it/100x70" alt="Logo" />
-
-      <nav className="header__nav">
-        <ul>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <img src="https://placehold.it/80x80" alt="Logo" />
+      <div className="header__stats">
+        <div className="header__stats-item">
+          <span className="num">69</span>
+          <span className="desc">lorem</span>
+        </div>
+        <div className="header__stats-item">
+          <span className="num">420</span>
+          <span className="desc">ipsum</span>
+        </div>
+        <div className="header__stats-item">
+          <span className="num">69K</span>
+          <span className="desc">dolor</span>
+        </div>
+      </div>
+      <div className="header__bio">
+        <span className="header__username">bryanaldrn</span>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Exercitationem vel dolorem ut quidem voluptate soluta. Accusamus,
+          vitae quidem exercitationem, enim tempore deserunt odit maxime error
+          itaque, sint fugit culpa nulla.
+        </p>
+      </div>
     </header>
   );
 };

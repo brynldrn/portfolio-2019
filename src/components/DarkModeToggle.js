@@ -4,7 +4,6 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const DarkModeToggle = ({ darkMode, setDarkMode }) => {
   const handleToggleClick = () => {
-    console.log(darkMode);
     setDarkMode(!darkMode);
   };
   return (

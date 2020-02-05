@@ -1,9 +1,39 @@
 $component: ".home";
 
 #{$component} {
-  &__projects {
-    padding: 0 rem(10);
+  &__options {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(color(blue, pale), 0.2);
+    border-bottom: 1px solid rgba(color(blue, pale), 0.2);
+    margin: 0 rem(10);
+
+    button {
+      padding: rem(10);
+      margin: 0;
+      display: block;
+      margin-right: rem(20);
+      color: color(blue, dark);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &.active {
+        color: color(blue, base);
+      }
+
+      svg {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__projects {
+    @include responsive(("display", "flex", "none"));
+
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;

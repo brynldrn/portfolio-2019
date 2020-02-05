@@ -8,6 +8,8 @@ $component: ".footer";
   transform: translateY(50%);
   transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 800ms;
 
+  @include responsive(("display", "block", "none"));
+
   &-social {
     display: flex;
     flex-flow: row wrap;

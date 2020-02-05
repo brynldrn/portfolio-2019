@@ -1,24 +1,28 @@
 $component: ".project";
 
 #{$component} {
+  @include aspect-ratio(96, 97);
+
   display: block;
   position: relative;
-  border-radius: rem(5);
-  margin-bottom: rem(10);
+  margin-bottom: rem(1);
   overflow: hidden;
   z-index: 0;
-  width: 100%;
+  width: calc(33%);
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 
   & > img {
     @include object-fit(cover);
 
     display: block;
     width: 100%;
-    height: rem(220);
     z-index: -1;
-    opacity: 0;
-    transform: translateY(50%);
-    transition: all 800ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 0ms;
   }
 
   &__meta {
@@ -50,11 +54,15 @@ $component: ".project";
     }
   }
 
-  &--visible {
-    > img,
-    #{$component}__meta {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  &--visible,
+  #{$component}__meta {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.single {
+  #{$component} {
+    width: 100%;
   }
 }

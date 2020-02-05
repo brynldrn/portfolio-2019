@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 
 // Hooks
 import useDarkMode from "./hooks/useDarkMode";
+import Navbar from "./components/Navbar";
 
 // Apollo Client Setup
 const client = new ApolloClient({
@@ -34,7 +35,8 @@ const App = () => {
             </Route>
           </Switch>
         </main>
-        <Footer />
+        {/* <Footer /> */}
+        <Navbar />
       </Router>
     </ApolloProvider>
   );

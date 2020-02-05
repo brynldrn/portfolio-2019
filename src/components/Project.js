@@ -11,10 +11,10 @@ const Project = props => {
       ref={ref}
     >
       <img src="https://picsum.photos/500" alt="Thumbnail" />
-      <div className="project__meta">
+      {/* <div className="project__meta">
         <h2>Project</h2>
         <span>Category</span>
-      </div>
+      </div> */}
     </article>
   );
 };

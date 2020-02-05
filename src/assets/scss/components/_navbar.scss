@@ -1,0 +1,47 @@
+$component: ".nav";
+
+#{$component} {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  border-top: 1px solid rgba(color(blue, pale), 0.2);
+  background-color: color(white, dark);
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  li > a {
+    display: block;
+    padding: rem(10) rem(20);
+    color: color(blue, dark);
+
+    &.active {
+      color: color(blue, base);
+    }
+  }
+}
+
+body.dark-mode {
+  #{$component} {
+    background-color: color(blue, dark);
+  }
+
+  #{$component} li > a {
+    color: color(blue, pale);
+  }
+
+  #{$component} li > a.active {
+    color: color(white, dark);
+  }
+}
